@@ -117,10 +117,37 @@ input, textarea {
         width: 40px;
         height: 40px;
         border: 1px solid var(--initial-white);
+        transition: color 0.3s ease;
+        position: relative;
+      }
 
-        img {
-          width: 16px;
-          height: 16px;
+      .action__shop-button .initial-icon,
+      .action__shop-button .hover-icon {
+        width: 20px;
+        height: 20px;
+        transition: opacity 0.3s ease;
+      }
+
+      .action__shop-button .initial-icon {
+        display: block;
+      }
+
+      .action__shop-button .hover-icon {
+        position: absolute;
+        opacity: 0;
+      }
+
+      @media (hover: hover) {
+        .action__shop-button:hover {
+          color: var(--hover-blue);
+        }
+
+        .action__shop-button:hover .initial-icon {
+          opacity: 0;
+        }
+
+        .action__shop-button:hover .hover-icon {
+          opacity: 1;
         }
       }
 
@@ -135,8 +162,17 @@ input, textarea {
         font-weight: 600;
         line-height: 18px;
         padding: 10px 12px;
-        border: 1px solid var(--initial-orange);
+        border: none;
         border-radius: 8px;
+        transition: .3s;
+
+        &.active { background: var(--pressed-orange); }
+
+        @media (hover:hover) {
+          &:hover {
+            background: var(--hover-orange);
+          }
+        }
       }
     }
   }
@@ -204,6 +240,7 @@ input, textarea {
       bottom: 250px;
       right: 100px;
       gap: 10px;
+      z-index: 2;
 
       .action__title {
         color: var(--initial-black);
@@ -227,6 +264,15 @@ input, textarea {
         line-height: 18px;
         text-align: center;
         border: none;
+        transition: .3s;
+
+        &.active { background: var(--pressed-blue); }
+
+        @media (hover:hover) {
+          &:hover {
+            background: var(--hover-blue);
+          }
+        }
       }
     }
   }
@@ -249,6 +295,37 @@ input, textarea {
       text-align: left;
       text-decoration: none;
       gap: 8px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .footer__navigation-item .initial-icon,
+    .footer__navigation-item .hover-icon {
+      transition: opacity 0.3s ease;
+    }
+
+    .footer__navigation-item .initial-icon {
+      display: block;
+    }
+
+    .footer__navigation-item .hover-icon {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+    }
+
+    @media (hover: hover) {
+      .footer__navigation-item:hover {
+        color: var(--hover-blue);
+      }
+
+      .footer__navigation-item:hover .initial-icon {
+        opacity: 0;
+      }
+
+      .footer__navigation-item:hover .hover-icon {
+        opacity: 1;
+      }
     }
   }
 }

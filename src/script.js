@@ -13,4 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.remove('initial')
     })
   })
+
+  const shopButton = document.querySelector('.action__shop-button')
+  shopButton.addEventListener('click', function() {
+    shopButton.classList.toggle('active')
+    //todo
+  })
+
+  const callbackButton = document.querySelector('.action__callback-button')
+  callbackButton.addEventListener('click', function() {
+    callbackButton.classList.toggle('active')
+  })
+
+  const showMore = document.querySelector('.action__show-button')
+  showMore.addEventListener('click', function() {
+    showMore.classList.toggle('active')
+  })
 })
