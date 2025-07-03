@@ -1,0 +1,29 @@
+:root {
+  --base-black: #1F2937;
+  --base-orange: #EAB308;
+  --base-blue: #2581EB;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(./assets/fonts/Inter.ttf) format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Jura;
+  src: url(./assets/fonts/Jura.ttf)  format("truetype");
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+input, textarea {
+  outline: none;
+  resize: none;
+}
