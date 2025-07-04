@@ -38,6 +38,7 @@ input, textarea {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
 
   .base-header {
     position: relative;
@@ -48,18 +49,31 @@ input, textarea {
     width: 100%;
     max-width: 1280px;
 
+    @media (max-width: 1050px) {
+      justify-content: space-between;
+    }
+
     .header__logo-link {
       position: absolute;
       max-width: 180px;
       width: 100%;
       height: auto;
       left: 16px;
+
+      @media (max-width: 1050px) {
+        position: relative;
+        left: 0;
+      }
     }
 
     .header__navigation {
       display: flex;
       align-items: center;
       gap: 25px;
+
+      @media (max-width: 1050px) {
+        display: none;
+      }
 
       .navigation__item {
         position: relative;
@@ -108,6 +122,11 @@ input, textarea {
       gap: 10px;
       right: 16px;
 
+      @media (max-width: 1050px) {
+        position: relative;
+        right: 0;
+      }
+
       .action__shop-button {
         cursor: pointer;
         display: flex;
@@ -119,6 +138,26 @@ input, textarea {
         border: 1px solid var(--initial-white);
         transition: color 0.3s ease;
         position: relative;
+      }
+
+      .action__burger-button {
+        display: none;
+
+        @media (max-width: 1050px) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: 1px solid var(--initial-orange);
+          border-radius: 8px;
+          width: 38px;
+          height: 38px;
+
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
       }
 
       .action__shop-button .initial-icon,
@@ -186,6 +225,10 @@ input, textarea {
     padding: 0 16px;
     max-width: 1280px;
 
+    @media (max-width: 1050px) {
+      align-items: flex-start;
+    }
+
     .main__title {
       position: absolute;
       color: var(--initial-black);
@@ -196,16 +239,31 @@ input, textarea {
       text-align: left;
       text-transform: uppercase;
 
+      @media (max-width: 1050px) {
+        position: relative;
+      }
+
       &.first {
         top: 85px;
         left: 0;
         z-index: 0;
+
+        @media (max-width: 1050px) {
+          order: 1;
+          top: auto;
+          margin-top: 85px;
+        }
       }
 
       &.second {
         top: 185px;
         right: 0;
         z-index: 0;
+
+        @media (max-width: 1050px) {
+          order: 2;
+          top: auto;
+        }
       }
     }
 
@@ -214,6 +272,13 @@ input, textarea {
       display: flex;
       width: max-content;
       height: 100%;
+
+      @media (max-width: 1050px) {
+        position: absolute;
+        right: -280px;
+        bottom: 0;
+        order: 4;
+      }
 
       .image-talk {
         position: absolute;
@@ -241,6 +306,14 @@ input, textarea {
       right: 100px;
       gap: 10px;
       z-index: 2;
+
+      @media (max-width: 1050px) {
+        position: relative;
+        order: 3;
+        bottom: auto;
+        right: auto;
+        margin-top: 30px;
+      }
 
       .action__title {
         color: var(--initial-black);
@@ -283,7 +356,13 @@ input, textarea {
     justify-content: space-between;
     max-width: 1000px;
     width: 100%;
+    padding: 0 16px;
     gap: 45px;
+
+    @media (max-width: 1050px) {
+      margin-top: auto;
+      padding: 16px;
+    }
 
     .footer__navigation-item {
       display: flex;
