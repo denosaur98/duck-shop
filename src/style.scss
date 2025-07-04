@@ -138,6 +138,11 @@ input, textarea {
         border: 1px solid var(--initial-white);
         transition: color 0.3s ease;
         position: relative;
+
+        @media (max-width: 960px) {
+          width: 40px;
+          height: 40px;
+        }
       }
 
       .action__burger-button {
