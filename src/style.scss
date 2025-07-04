@@ -49,18 +49,18 @@ input, textarea {
     width: 100%;
     max-width: 1280px;
 
-    @media (max-width: 1050px) {
+    @media (max-width: 960px) {
       justify-content: space-between;
     }
 
     .header__logo-link {
       position: absolute;
-      max-width: 180px;
+      max-width: 9.38vw;
       width: 100%;
       height: auto;
       left: 16px;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         position: relative;
         left: 0;
       }
@@ -69,9 +69,9 @@ input, textarea {
     .header__navigation {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 1.3vw;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         display: none;
       }
 
@@ -122,7 +122,7 @@ input, textarea {
       gap: 10px;
       right: 16px;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         position: relative;
         right: 0;
       }
@@ -133,8 +133,8 @@ input, textarea {
         align-items: center;
         justify-content: center;
         background: none;
-        width: 40px;
-        height: 40px;
+        width: 2.08vw;
+        height: 2.08vw;
         border: 1px solid var(--initial-white);
         transition: color 0.3s ease;
         position: relative;
@@ -143,7 +143,7 @@ input, textarea {
       .action__burger-button {
         display: none;
 
-        @media (max-width: 1050px) {
+        @media (max-width: 960px) {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -205,6 +205,10 @@ input, textarea {
         border-radius: 8px;
         transition: .3s;
 
+        @media (max-width: 550px) {
+          display: none;
+        }
+
         &.active { background: var(--pressed-orange); }
 
         @media (hover:hover) {
@@ -225,7 +229,7 @@ input, textarea {
     padding: 0 16px;
     max-width: 1280px;
 
-    @media (max-width: 1050px) {
+    @media (max-width: 960px) {
       align-items: flex-start;
     }
 
@@ -233,14 +237,19 @@ input, textarea {
       position: absolute;
       color: var(--initial-black);
       font-family: Jura;
-      font-size: 152px;
+      font-size: clamp(48px, 11.88vw, 152px);
       font-weight: 700;
       line-height: 100%;
       text-align: left;
       text-transform: uppercase;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         position: relative;
+        font-size: clamp(48px, 15.83vw, 152px);
+      }
+
+      @media (max-width: 550px) {
+        font-size: clamp(50px, 25.73vw, 1000px);
       }
 
       &.first {
@@ -248,10 +257,10 @@ input, textarea {
         left: 0;
         z-index: 0;
 
-        @media (max-width: 1050px) {
+        @media (max-width: 960px) {
           order: 1;
           top: auto;
-          margin-top: 85px;
+          margin-top: 8.85vw;
         }
       }
 
@@ -260,7 +269,7 @@ input, textarea {
         right: 0;
         z-index: 0;
 
-        @media (max-width: 1050px) {
+        @media (max-width: 960px) {
           order: 2;
           top: auto;
         }
@@ -273,11 +282,21 @@ input, textarea {
       width: max-content;
       height: 100%;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         position: absolute;
-        right: -280px;
+        right: -30vw;
         bottom: 0;
         order: 4;
+      }
+
+      @media (max-width: 550px) {
+        bottom: -250px;
+        right: -150px;
+        top: 70vw;
+      }
+
+      @media (max-width: 380px) {
+        top: auto;
       }
 
       .image-talk {
@@ -287,6 +306,26 @@ input, textarea {
         top: 300px;
         left: -50px;
         z-index: 1;
+
+        @media (max-width: 960px) {
+          top: 230px;
+          width: 12.50vw;
+          height: 11.25vw;
+          top: 25vw;
+          left: -4vw;
+        }
+
+        @media (max-width: 550px) {
+          bottom: -250px;
+          right: -150px;
+          width: 64px;
+          height: 56px;
+          top: 30vw;
+        }
+
+        @media (max-width: 380px) {
+          top: 120px;
+        }
       }
 
       .image-duck {
@@ -294,6 +333,19 @@ input, textarea {
         height: 620px;
         z-index: 2;
         margin-top: 70px;
+
+        @media (max-width: 960px) {
+          margin-top: 0;
+          width: 64.58vw;
+          height: 64.58vw;
+        }
+
+        @media (max-width: 550px) {
+          min-width: 343px;
+          min-height: 343px;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
 
@@ -303,11 +355,11 @@ input, textarea {
       flex-direction: column;
       align-items: flex-start;
       bottom: 250px;
-      right: 100px;
+      right: 5.4vw;
       gap: 10px;
       z-index: 2;
 
-      @media (max-width: 1050px) {
+      @media (max-width: 960px) {
         position: relative;
         order: 3;
         bottom: auto;
@@ -317,10 +369,14 @@ input, textarea {
 
       .action__title {
         color: var(--initial-black);
-        font-size: 16px;
+        font-size: clamp(16px, 0.83vw, 1000px);
         font-weight: 400;
         line-height: 20px;
         text-align: left;
+
+        @media (max-width: 340px) {
+          font-size: 14px;
+        }
       }
 
       .action__show-button {
@@ -357,18 +413,29 @@ input, textarea {
     max-width: 1000px;
     width: 100%;
     padding: 0 16px;
-    gap: 45px;
+    gap: 2.34vw;
 
-    @media (max-width: 1050px) {
-      margin-top: auto;
+    @media (max-width: 960px) {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-content: center;
+      margin-top: 5.21vw;
       padding: 16px;
+    }
+
+    @media (max-width: 550px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 155px;
+      gap: 20px;
     }
 
     .footer__navigation-item {
       display: flex;
       align-items: center;
       color: var(--initial-black);
-      font-size: 16px;
+      font-size: clamp(16px, 0.83vw, 1000px);
       font-weight: 400;
       line-height: 20px;
       text-align: left;
@@ -376,6 +443,7 @@ input, textarea {
       gap: 8px;
       transition: color 0.3s ease;
       position: relative;
+      z-index: 4;
     }
 
     .footer__navigation-item .initial-icon,
