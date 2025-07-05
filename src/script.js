@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const shopButton = document.querySelector('.action__shop-button')
   shopButton.addEventListener('click', function() {
     shopButton.classList.toggle('active')
-    //todo
   })
 
   const callbackButton = document.querySelector('.action__callback-button')
@@ -145,5 +144,32 @@ document.addEventListener('DOMContentLoaded', function() {
     `)
 
     closeForm()
+  })
+
+  const burgerMenuButton = document.querySelector('.action__burger-button')
+  const burgerMenuPopup = document.querySelector('.base-menu-popup')
+  const closeBurgerMenuPopup = document.querySelector('.close-burger-menu')
+  const menuPopupOverlay = document.querySelector('.menu-popup-overlay')
+  const popupContent = document.querySelector('.popup__content')
+  burgerMenuButton.addEventListener('click', function() {
+    if (!burgerMenuPopup.classList.contains('active')) {
+      burgerMenuPopup.classList.add('active')
+      burgerMenuButton.classList.add('active')
+    }
+  })
+  function closeMenu() {
+    popupContent.style.transform = 'translateY(-100%)'
+    setTimeout(() => {
+      burgerMenuPopup.classList.remove('active')
+      burgerMenuButton.classList.remove('active')
+      popupContent.style.transform = ''
+    }, 500)
+  }
+  closeBurgerMenuPopup.addEventListener('click', closeMenu)
+  menuPopupOverlay.addEventListener('click', closeMenu)
+  popupContent.addEventListener('transitionend', function() {
+    if (!burgerMenuPopup.classList.contains('active')) {
+      popupContent.style.transform = ''
+    }
   })
 })

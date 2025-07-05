@@ -27,10 +27,12 @@
         <button class="action__shop-button">
           <img src="./assets/icons/basket.svg" class="initial-icon">
           <img src="./assets/icons/basket-hover.svg" class="hover-icon">
+          <img src="./assets/icons/basket-pressed.svg" class="active-icon">
         </button>
         <button class="action__callback-button">Заказать обратный звонок</button>
         <button class="action__burger-button">
-          <img src="./assets/icons/burger.svg">
+          <img src="./assets/icons/burger.svg" class="initial-burger-icon">
+          <img src="./assets/icons/burger-pressed.svg" class="hover-burger-icon">
         </button>
       </div>
     </header>
@@ -100,6 +102,28 @@
         </div>
         <p class="form__text">Нажимая кнопку “Отправить”, вы соглашаетесь с <a href="/" class="text__form-link">политикой конфиденциальности</a> и <a href="/" class="text__form-link">договором оферты</a></p>
       </form>
+    </div>
+
+    <div class="base-menu-popup">
+      <div class="menu-popup-overlay"></div>
+      <div class="popup__content">
+        <div class="menu-popup-header">
+          <a href="/" class="header__logo-link">
+            <img src="./assets/images/logo.svg">
+          </a>
+          <button class="form__close-button close-burger-menu" type="button">
+            <img src="./assets/icons/close.svg">
+          </button>
+        </div>
+        <nav class="popup__header-navigation">
+          <a href="/" class="navigation__item active">Главная</a>
+          <a href="/" class="navigation__item">Каталог</a>
+          <a href="/" class="navigation__item">Блог</a>
+          <a href="/" class="navigation__item">Отзывы</a>
+          <a href="/" class="navigation__item">Контакты</a>
+          <button class="action__callback-button popup-callback-button">Заказать обратный звонок</button>
+        </nav>
+      </div>
     </div>
   </div>
   <script src="./script.js"></script>
