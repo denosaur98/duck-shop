@@ -1,17 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navItems = document.querySelectorAll('.navigation__item')
+  let currentPath = window.location.pathname
+
+  function setActiveNavItem() {
+    navItems.forEach(item => {
+      const itemPath = new URL(item.href, window.location.origin).pathname
+
+      item.classList.remove('active')
+      item.classList.add('initial')
+
+      if (itemPath === currentPath || (currentPath.startsWith(itemPath) && itemPath !== '/')) {
+        item.classList.add('active')
+        item.classList.remove('initial')
+      }
+    })
+  }
+
   navItems.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault()
+
+      closeMenu()
+
+      const newPath = new URL(link.href).pathname
+
+      if (newPath === currentPath) return
 
       navItems.forEach(item => {
         item.classList.remove('active')
         item.classList.add('initial')
       })
-
       link.classList.add('active')
       link.classList.remove('initial')
+
+      history.pushState(null, '', link.href)
+      currentPath = newPath
     })
+  })
+
+  window.addEventListener('popstate', function() {
+    currentPath = window.location.pathname
+    setActiveNavItem()
+    loadContent(currentPath)
   })
 
   const shopButton = document.querySelector('.action__shop-button')
