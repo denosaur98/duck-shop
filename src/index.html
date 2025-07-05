@@ -80,6 +80,27 @@
         Взрослым
       </a>
     </footer>
+
+    <div class="base-popup-wrapper">
+      <div class="popup-overlay"></div>
+      <form type="submit" class="popup__form">
+        <button class="form__close-button" type="button">
+          <img src="./assets/icons/close.svg">
+        </button>
+        <div class="form__content">
+          <div class="content__item">
+            <label for="name" class="item__title">Имя<span>*</span></label>
+            <input placeholder="Введите ваше имя:" id="name" class="item__input">
+          </div>
+          <div class="content__item">
+            <label for="phone" class="item__title">Телефон<span>*</span></label>
+            <input placeholder="+7 000 000 00 00 " id="phone" class="item__input">
+          </div>
+          <button class="form__submit-button">Отправить</button>
+        </div>
+        <p class="form__text">Нажимая кнопку “Отправить”, вы соглашаетесь с <a href="/" class="text__form-link">политикой конфиденциальности</a> и <a href="/" class="text__form-link">договором оферты</a></p>
+      </form>
+    </div>
   </div>
   <script src="./script.js"></script>
 </body>

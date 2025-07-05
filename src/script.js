@@ -21,8 +21,20 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   const callbackButton = document.querySelector('.action__callback-button')
+  const basePopup = document.querySelector('.base-popup-wrapper')
+  const popupOverlay = document.querySelector('.popup-overlay')
+  const formCloseButton = document.querySelector('.form__close-button')
   callbackButton.addEventListener('click', function() {
     callbackButton.classList.toggle('active')
+    basePopup.classList.toggle('active')
+  })
+  popupOverlay.addEventListener('click', function() {
+    basePopup.classList.remove('active')
+    callbackButton.classList.remove('active')
+  })
+  formCloseButton.addEventListener('click', function() {
+    basePopup.classList.remove('active')
+    callbackButton.classList.remove('active')
   })
 
   const showMore = document.querySelector('.action__show-button')
