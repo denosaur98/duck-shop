@@ -19,14 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
     shopButton.classList.toggle('active')
   })
 
-  const callbackButton = document.querySelector('.action__callback-button')
+  const callbackButton = document.querySelectorAll('.action__callback-button')
   const basePopup = document.querySelector('.base-popup-wrapper')
   const popupOverlay = document.querySelector('.popup-overlay')
   const formCloseButton = document.querySelector('.form__close-button')
   const nameInput = document.getElementById('name')
-  callbackButton.addEventListener('click', function() {
-    callbackButton.classList.toggle('active')
-    basePopup.classList.toggle('active')
+  callbackButton.forEach(button => {
+    button.addEventListener('click', function() {
+      basePopup.classList.add('active')
+
+      if (burgerMenuPopup.classList.contains('active')) {
+        popupContent.style.transform = 'translateY(-100%)'
+        setTimeout(() => {
+          burgerMenuPopup.classList.remove('active')
+          burgerMenuButton.classList.remove('active')
+          popupContent.style.transform = ''
+        }, 500)
+      }
+    })
   })
 
   function closeForm() {
