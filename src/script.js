@@ -24,30 +24,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const basePopup = document.querySelector('.base-popup-wrapper')
   const popupOverlay = document.querySelector('.popup-overlay')
   const formCloseButton = document.querySelector('.form__close-button')
+  const nameInput = document.getElementById('name')
   callbackButton.addEventListener('click', function() {
     callbackButton.classList.toggle('active')
     basePopup.classList.toggle('active')
   })
-  popupOverlay.addEventListener('click', function() {
+
+  function closeForm() {
     basePopup.classList.remove('active')
     callbackButton.classList.remove('active')
-  })
-  formCloseButton.addEventListener('click', function() {
-    basePopup.classList.remove('active')
-    callbackButton.classList.remove('active')
-  })
+    phoneInput.value = ''
+    nameInput.value = ''
+  }
+
+  popupOverlay.addEventListener('click', closeForm)
+  formCloseButton.addEventListener('click', closeForm)
 
   const showMore = document.querySelector('.action__show-button')
   showMore.addEventListener('click', function() {
     showMore.classList.toggle('active')
   })
 
-  const phoneInput = document.getElementById('phone');
-  phoneInput.addEventListener('input', formatPhone);
-  phoneInput.addEventListener('keydown', handlePhoneBackspace);
-
+  const phoneInput = document.getElementById('phone')
+  phoneInput.addEventListener('input', formatPhone)
+  phoneInput.addEventListener('keydown', handlePhoneBackspace)
   function formatPhone(event) {
-    const input = event.target;
+    const input = event.target
     let value = input.value.replace(/\D/g, '')
     let cursorPos = input.selectionStart
 
@@ -120,4 +122,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     return Math.max(newCursorPos, 5)
   }
+
+  const submitForm = document.querySelector('.form__submit-button')
+  submitForm.addEventListener('click', function(e) {
+    e.preventDefault()
+
+    const cleanPhone = phoneInput.value.replace(/\D/g, '')
+
+    if (nameInput.value.trim() === '') {
+      alert('Пожалуйста, введите ваше имя')
+      return
+    }
+
+    if (phoneInput.value === '' || cleanPhone.length !== 11) {
+      alert('Пожалуйста, введите корректный номер телефона')
+      return
+    }
+
+    alert(`
+      ${nameInput.value}, ваша заявка на обратный звонок отправлена!
+      Скоро мы свяжемся с вами по номеру: +${cleanPhone}.
+    `)
+
+    closeForm()
+  })
 })
