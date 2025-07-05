@@ -594,6 +594,13 @@ input, textarea {
             border: 1px solid var(--initial-light-grey);
             border-radius: 14px;
             padding: 10px 16px;
+            color: var(--initial-black);
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
 
             &::placeholder { color: var(--initial-grey); }
           }
