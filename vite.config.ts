@@ -5,9 +5,11 @@ import { fileURLToPath } from 'url'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
+  base: '/duck-shop/',
   root: './src',
   build: {
     outDir: '../output',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
@@ -21,5 +23,11 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
     },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+      }
+    }
   }
 })
