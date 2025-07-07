@@ -100,46 +100,68 @@ input, textarea, button {
         width: 2.08vw;
         height: 2.08vw;
         border: 1px solid var(--initial-white);
-        transition: color 0.5s ease;
+        transition: all 0.5s ease;
         position: relative;
+        -webkit-tap-highlight-color: transparent;
 
         @media (max-width: 960px) {
           width: 40px;
           height: 40px;
         }
 
-        & img {
+        &::after {
+          content: '';
+          display: block;
           width: 20px;
           height: 20px;
-          transition: opacity 0.5s ease;
+          background-image: url('./assets/icons/basket.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          transition: opacity 0.3s ease;
+        }
+
+        &::before {
+          content: '';
           position: absolute;
-        }
-
-        .initial-icon {
-          opacity: 1;
-        }
-
-        .hover-icon,
-        .active-icon {
+          width: 20px;
+          height: 20px;
+          background-image: url('./assets/icons/basket-hover.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
           opacity: 0;
+          transition: opacity 0.3s ease;
         }
 
-        &:not(.active):hover {
-          .initial-icon {
-            opacity: 0;
-          }
-          .hover-icon {
-            opacity: 1;
+        @media (hover: hover) {
+          &:hover:not(.active) {
+            &::after {
+              opacity: 0;
+            }
+            &::before {
+              opacity: 1;
+            }
           }
         }
 
         &.active {
-          .initial-icon,
-          .hover-icon {
-            opacity: 0;
+          &::after {
+            background-image: url('./assets/icons/basket-pressed.svg');
+            opacity: 1 !important;
           }
-          .active-icon {
+          &::before {
+            opacity: 0 !important;
+          }
+        }
+
+        &:active:not(.active) {
+          &::after {
+            background-image: url('./assets/icons/basket-pressed.svg');
             opacity: 1;
+          }
+          &::before {
+            opacity: 0;
           }
         }
       }
@@ -159,38 +181,41 @@ input, textarea, button {
           height: 38px;
           transition: all 0.3s ease;
           position: relative;
+          -webkit-tap-highlight-color: transparent;
 
-          img {
+          &::after {
+            content: '';
+            display: block;
             width: 16px;
             height: 16px;
-            transition: opacity 0.3s ease;
+            background-image: url('./assets/icons/burger.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.3s ease;
           }
 
-          .initial-burger-icon {
-            display: block;
-            opacity: 1;
-          }
-
-          .hover-burger-icon,
-          .active-burger-icon {
+          &::before {
+            content: '';
             position: absolute;
+            width: 16px;
+            height: 16px;
+            background-image: url('./assets/icons/burger-pressed.svg');
+            background-repeat: no-repeat;
+            background-position: center;
             opacity: 0;
+            transition: all 0.3s ease;
           }
 
           @media (hover: hover) {
-            &:hover {
+            &:hover:not(.active) {
               background: var(--hover-orange);
               border-color: var(--hover-orange);
 
-              .initial-burger-icon {
-                opacity: 0;
-              }
-
-              .hover-burger-icon {
+              &::after {
                 opacity: 1;
               }
 
-              .active-burger-icon {
+              &::before {
                 opacity: 0;
               }
             }
@@ -200,20 +225,25 @@ input, textarea, button {
             background: var(--pressed-orange);
             border-color: var(--pressed-orange);
 
-            .initial-burger-icon,
-            .hover-burger-icon {
+            &::after {
               opacity: 0;
             }
 
-            .hover-burger-icon {
+            &::before {
               opacity: 1;
             }
+          }
 
-            &:hover {
-              .hover-burger-icon {
-                opacity: 1;
-                filter: brightness(1.1);
-              }
+          &:active:not(.active) {
+            background: var(--pressed-orange);
+            border-color: var(--pressed-orange);
+
+            &::after {
+              opacity: 0;
+            }
+
+            &::before {
+              opacity: 1;
             }
           }
         }

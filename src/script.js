@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   callbackButton.forEach(button => {
     button.addEventListener('click', function() {
       basePopup.classList.add('active')
+      button.classList.add('active')
 
       if (burgerMenuPopup.classList.contains('active')) {
         popupContent.style.transform = 'translateY(-100%)'
@@ -201,5 +202,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!burgerMenuPopup.classList.contains('active')) {
       popupContent.style.transform = ''
     }
+  })
+
+  const shopButton = document.querySelector('.action__shop-button')
+  shopButton.addEventListener('click', function() {
+    shopButton.classList.toggle('active')
+  })
+
+  const showMore = document.querySelector('.action__show-button')
+  showMore.addEventListener('click', function() {
+    showMore.classList.toggle('active')
   })
 })
