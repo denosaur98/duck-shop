@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function closeForm() {
     basePopup.classList.remove('active')
-    callbackButton.classList.remove('active')
+    callbackButton.forEach(button => button.classList.remove('active'))
     phoneInput.value = ''
     nameInput.value = ''
   }

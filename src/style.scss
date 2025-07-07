@@ -336,7 +336,7 @@ input, textarea, button {
       }
 
       @media (max-width: 550px) {
-        font-size: clamp(50px, 25.73vw, 1000px);
+        font-size: clamp(40px, 25.73vw, 152px);
       }
 
       &.first {
@@ -428,10 +428,8 @@ input, textarea, button {
         }
 
         @media (max-width: 550px) {
-          min-width: 343px;
-          min-height: 343px;
-          width: 100%;
-          height: 100%;
+          width: 343px;
+          height: 343px;
         }
       }
     }
