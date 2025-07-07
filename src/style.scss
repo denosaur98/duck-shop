@@ -315,9 +315,11 @@ input, textarea, button {
     width: 100%;
     padding: 0 16px;
     max-width: 1280px;
+    box-sizing: border-box;
 
     @media (max-width: 960px) {
       align-items: flex-start;
+      max-width: 100%;
     }
 
     .main__title {
@@ -336,7 +338,12 @@ input, textarea, button {
       }
 
       @media (max-width: 550px) {
-        font-size: clamp(40px, 25.73vw, 152px);
+        font-size: clamp(25px, 25.5vw, 152px);
+        width: 100%;
+      }
+
+      @media (max-width: 400px) {
+        font-size: clamp(25px, 27vw, 87px);
       }
 
       &.first {
@@ -382,7 +389,7 @@ input, textarea, button {
         top: 70vw;
       }
 
-      @media (max-width: 380px) {
+      @media (max-width: 400px) {
         top: auto;
       }
 
@@ -407,11 +414,7 @@ input, textarea, button {
           right: -150px;
           width: 64px;
           height: 56px;
-          top: 30vw;
-        }
-
-        @media (max-width: 380px) {
-          top: 120px;
+          top: 130px;
         }
       }
 
