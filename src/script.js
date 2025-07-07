@@ -44,11 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadContent(currentPath)
   })
 
-  const shopButton = document.querySelector('.action__shop-button')
-  shopButton.addEventListener('click', function() {
-    shopButton.classList.toggle('active')
-  })
-
   const callbackButton = document.querySelectorAll('.action__callback-button')
   const basePopup = document.querySelector('.base-popup-wrapper')
   const popupOverlay = document.querySelector('.popup-overlay')
@@ -78,11 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   popupOverlay.addEventListener('click', closeForm)
   formCloseButton.addEventListener('click', closeForm)
-
-  const showMore = document.querySelector('.action__show-button')
-  showMore.addEventListener('click', function() {
-    showMore.classList.toggle('active')
-  })
 
   const phoneInput = document.getElementById('phone')
   phoneInput.addEventListener('input', formatPhone)

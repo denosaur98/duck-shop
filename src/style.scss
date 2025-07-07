@@ -112,20 +112,15 @@ input, textarea, button {
           width: 20px;
           height: 20px;
           transition: opacity 0.5s ease;
+          position: absolute;
         }
 
         .initial-icon {
-          display: block;
           opacity: 1;
         }
 
-        .hover-icon {
-          position: absolute;
-          opacity: 0;
-        }
-
+        .hover-icon,
         .active-icon {
-          position: absolute;
           opacity: 0;
         }
 
@@ -133,7 +128,6 @@ input, textarea, button {
           .initial-icon {
             opacity: 0;
           }
-
           .hover-icon {
             opacity: 1;
           }
@@ -144,15 +138,8 @@ input, textarea, button {
           .hover-icon {
             opacity: 0;
           }
-
           .active-icon {
             opacity: 1;
-          }
-
-          &:hover {
-            .active-icon {
-              opacity: 1;
-            }
           }
         }
       }
