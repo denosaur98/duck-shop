@@ -543,40 +543,50 @@ input, textarea, button {
       font-size: clamp(16px, 0.83vw, 1000px);
       font-weight: 400;
       line-height: 20px;
-      text-align: left;
       text-decoration: none;
       gap: 8px;
       transition: color 0.3s ease;
       position: relative;
+      padding-left: 22px;
       z-index: 4;
-    }
 
-    .footer__navigation-item .initial-icon,
-    .footer__navigation-item .hover-icon {
-      transition: opacity 0.3s ease;
-    }
-
-    .footer__navigation-item .initial-icon {
-      display: block;
-    }
-
-    .footer__navigation-item .hover-icon {
-      position: absolute;
-      left: 0;
-      opacity: 0;
-    }
-
-    @media (hover: hover) {
-      .footer__navigation-item:hover {
-        color: var(--hover-blue);
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 14px;
+        height: 12px;
+        background-image: url('./assets/icons/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: opacity 0.3s ease;
       }
 
-      .footer__navigation-item:hover .initial-icon {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 14px;
+        height: 12px;
+        background-image: url('./assets/icons/arrow-right-hover.svg');
+        background-repeat: no-repeat;
+        background-position: center;
         opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
-      .footer__navigation-item:hover .hover-icon {
-        opacity: 1;
+      @media (hover: hover) {
+        &:hover {
+          color: var(--hover-blue);
+
+          &::before {
+            opacity: 0;
+          }
+
+          &::after {
+            opacity: 1;
+          }
+        }
       }
     }
   }
